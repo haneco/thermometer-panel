@@ -1,0 +1,20 @@
+{
+  "type": "panel",
+  "name": "Thermometer",
+  "id": "haneco-thermometer-panel",
+
+  "info": {
+    "description": "Thermometer panel for grafana",
+    "author": {
+      "name": "haneco",
+      "url": "http://haneco.hatenablog.jp"
+    },
+    "keywords": ["thermometer", "panel"],
+    "logos": {
+      "small": "src/img/thermometer_logo_small.png",
+      "large": "src/img/thermometer_logo_large.png"
+    },
+    "version": "1.0.0",
+    "updated": "2017-10-12"
+  }
+}

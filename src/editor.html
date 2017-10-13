@@ -1,0 +1,77 @@
+<div class="editor-row">
+	<div class="section gf-form-group">
+		<h5 class="section-heading">General</h5>
+		<div class="gf-form-inline">
+			<div class="gf-form" ng-show="ctrl.dataType === 'timeseries'">
+				<label class="gf-form-label width-8">Stat</label>
+				<div class="gf-form-select-wrapper width-12">
+					<select class="gf-form-input" ng-model="ctrl.panel.valueName" ng-options="f.value as f.text for f in ctrl.valueNameOptions"
+					 ng-change="ctrl.refresh()"></select>
+				</div>
+			</div>
+			<div class="gf-form" ng-show="ctrl.dataType === 'table'">
+				<label class="gf-form-label width-6">Column</label>
+				<div class="gf-form-select-wrapper width-12">
+					<select class="gf-form-input" ng-model="ctrl.panel.tableColumn" ng-options="f for f in ctrl.tableColumnOptions" ng-change="ctrl.refresh()"></select>
+				</div>
+			</div>
+			<div class="gf-form">
+				<label class="gf-form-label width-6">Font size</label>
+				<div class="gf-form-select-wrapper">
+					<select class="gf-form-input" ng-model="ctrl.panel.fontSize" ng-options="f for f in ctrl.fontSizes" ng-change="ctrl.render()"></select>
+				</div>
+			</div>
+		</div>
+
+		<div class="gf-form">
+			<span class="gf-form-label width-8">Unit</span>
+			<div class="gf-form-dropdown-typeahead width-18" ng-model="ctrl.panel.format" dropdown-typeahead="ctrl.unitFormats" dropdown-typeahead-on-select="ctrl.setUnitFormat($subItem)"
+			 ng-change="ctrl.refresh()">
+			</div>
+		</div>
+
+		<div class="gf-form">
+			<label class="gf-form-label width-8">Decimals</label>
+			<input type="number" class="gf-form-input width-18" placeholder="auto" data-placement="right" bs-tooltip="'Override automatic decimal precision for legend and tooltips'"
+			 ng-model="ctrl.panel.decimals" ng-change="ctrl.refresh()" ng-model-onblur>
+		</div>
+	</div>
+
+	<div class="section gf-form-group">
+		<h5 class="section-heading">Coloring</h5>
+		<div class="gf-form-inline">
+			<gf-form-switch class="gf-form" label-class="width-8" label="Gauge" checked="ctrl.panel.colorGauge" on-change="ctrl.render()"></gf-form-switch>
+			<gf-form-switch class="gf-form" label-class="width-4" label="Value" checked="ctrl.panel.colorValue" on-change="ctrl.render()"></gf-form-switch>
+		</div>
+		<div class="gf-form-inline">
+			<div class="gf-form max-width-21">
+				<label class="gf-form-label width-8">Thresholds
+					<tip>Define four threshold values</tip>
+				</label>
+				<input type="text" class="gf-form-input" ng-model="ctrl.panel.thresholds" ng-blur="ctrl.render()" placeholder="-10,0,15,25"></input>
+			</div>
+		</div>
+		<div class="gf-form">
+			<label class="gf-form-label width-8">Colors</label>
+			<spectrum-picker class="gf-form-input" ng-model="ctrl.panel.colors[0]" ng-change="ctrl.onColorChange(0)" ></spectrum-picker>
+			<spectrum-picker class="gf-form-input" ng-model="ctrl.panel.colors[1]" ng-change="ctrl.onColorChange(1)" ></spectrum-picker>
+			<spectrum-picker class="gf-form-input" ng-model="ctrl.panel.colors[2]" ng-change="ctrl.onColorChange(2)" ></spectrum-picker>
+			<spectrum-picker class="gf-form-input" ng-model="ctrl.panel.colors[3]" ng-change="ctrl.onColorChange(3)" ></spectrum-picker>
+			<spectrum-picker class="gf-form-input" ng-model="ctrl.panel.colors[4]" ng-change="ctrl.onColorChange(4)" ></spectrum-picker>
+		</div>
+	</div>
+
+	<div class="section gf-form-group">
+		<h5 class="section-heading">Value</h5>
+		<div class="gf-form">
+			<label class="gf-form-label width-8">Max</label>
+			<input type="number" class="gf-form-input width-18" placeholder="auto" data-placement="right" ng-model="ctrl.panel.maxValue"
+			 ng-change="ctrl.refresh()" ng-model-onblur>
+		</div>
+		<div class="gf-form">
+			<label class="gf-form-label width-8">Min</label>
+			<input type="number" class="gf-form-input width-18" placeholder="auto" data-placement="right" ng-model="ctrl.panel.minValue"
+			 ng-change="ctrl.refresh()" ng-model-onblur>
+		</div>
+	</div>
+</div>
