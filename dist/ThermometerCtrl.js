@@ -333,9 +333,6 @@ System.register(['lodash', 'jquery', './rendering', 'app/core/utils/kbn', 'app/c
             }
             for (var i = thresholds.length; i > 0; i--) {
               if (value >= thresholds[i - 1]) {
-                console.log(value);
-                console.log(thresholds[i - 1]);
-                console.log(this.panel.colors[i]);
                 return this.panel.colors[i];
               }
             }

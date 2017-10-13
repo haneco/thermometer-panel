@@ -269,9 +269,6 @@ export class ThermometerCtrl extends MetricsPanelCtrl {
     }
     for (let i = thresholds.length; i > 0; i--) {
       if (value >= thresholds[i-1]) {
-        console.log(value);
-        console.log(thresholds[i-1]);
-        console.log(this.panel.colors[i]);
         return this.panel.colors[i];
       }
     }

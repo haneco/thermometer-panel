@@ -119,7 +119,7 @@ export default function link(scope, elem, attrs, ctrl) {
     position:absolute;
     top:calc(50% - 1em);
     left:${ballSize + 5}px;
-    width:62px;
+    width:5em;
     font-size:${panel.fontSize};
     font-weight:bold;
     color:${textColor};
